@@ -1,4 +1,6 @@
-﻿namespace CarRegTask
+using System;
+
+namespace CarRegTask
 {
     internal class Program
     {
@@ -7,23 +9,29 @@
             int charge = 0;
             Console.Write("Enter your car registration: ");
             string carReg = Console.ReadLine();
+
             while (carReg.Length > 8)
             {
-                string displayMessge = " is not valid";
-                Console.Write(displayMessge);
+                string displayMessage = carReg + " is not valid"; // Concatenation fix
+                Console.WriteLine(displayMessage);
+                Console.Write("Enter a valid car registration: ");
                 carReg = Console.ReadLine();
             }
+
             Console.Write("Enter your stay in hours: ");
             int hours = Convert.ToInt32(Console.ReadLine());
+
             if (hours < 2)
             {
                 charge = 0;
             }
             else
             {
-                charge = hours * 2;
+                charge = (hours * 2) + 2; // Updated charge calculation
             }
-            Console.WriteLine(charge);
+
+            Console.WriteLine("Parking charge: £" + charge);
+
 
             // rewrite line 12 to concatenate the car registration with the string is not valid
             // store the result in display message
